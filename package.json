@@ -1,0 +1,25 @@
+{
+  "name": "fwings_wx_sdk_a_s",
+  "version": "1.0.0",
+  "description": "Simplification-package of weixin-jssdk usage",
+  "main": "wx_sdk_a_s.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AveiShriety/fwings_wx_sdk_a_s.git"
+  },
+  "keywords": [
+    "simplification-package",
+    "weixin",
+    "jssdk"
+  ],
+  "author": "a_s",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AveiShriety/fwings_wx_sdk_a_s/issues"
+  },
+  "homepage": "https://github.com/AveiShriety/fwings_wx_sdk_a_s#readme",
+  "dependencies": {
+    "weixin-js-sdk": "^1.6.0"
+  },
+  "devDependencies": {}
+}
