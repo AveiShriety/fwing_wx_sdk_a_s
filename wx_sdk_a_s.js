@@ -1,30 +1,38 @@
 /**
  * @author AveiShriety
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2020-07-20
  */
+
 !(function (e, n) {
   module.exports = n(e);
 })(window, function (o, e) {
   'use strict';
+  let wx = require("weixin-js-sdk");
 
   let curRequestPath = window.document.location.href;
   let pathName = window.document.location.pathname;
   let localhostPath = curRequestPath.substring(0, curRequestPath.indexOf(pathName));
   let projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
-  const contextPath = localhostPath + projectName;
+  let contextPath = localhostPath + projectName;
 
-  function takePhoto(fn) {
-    configCallFn(cameraFn(fn));
+  function takePhoto(fn, url) {
+    configCallFn(cameraFn(fn), url);
   }
 
-  function configCallFn(fn) {
-    $.getJSON(
+  function configCallFn(fn, urlparam) {
+    if (!!urlparam) contextPath = urlparam;
+    let url =
       contextPath +
       "/n/wxsdk_jssdj_config" +
       "?url=" +
-      encodeURIComponent(location.href.split("#")[0])
-      , function (response) {
+      encodeURIComponent(location.href.split("#")[0]);
+
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (response) {
         wx.config({
           debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
           appId: response.appId, // 必填，公众号的唯一标识
@@ -51,13 +59,17 @@
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
             var serverId = res.serverId; // 返回图片的服务器端ID
-            $.get(
+            let url =
               contextPath +
               "/n/wxsdk_jssdj_camera" +
-              "?media_id=" + serverId
-              , function (response) {
+              "?media_id=" + serverId;
+            fetch(url)
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (response) {
                 fn && fn(response);
-              });
+              })
           }
         });
       }
