@@ -65,7 +65,7 @@
               "?media_id=" + serverId;
             fetch(url)
               .then(function (response) {
-                return response.json();
+                return response.text();
               })
               .then(function (response) {
                 fn && fn(response);
