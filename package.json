@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/AveiShriety/fwing_wx_sdk_a_s#readme",
   "dependencies": {
-    "weixin-js-sdk": "^1.6.0"
+    "weixin-js-sdk": "^1.6.0",
+    "layer-mobile": "2.0.1"
   },
   "devDependencies": {}
 }
