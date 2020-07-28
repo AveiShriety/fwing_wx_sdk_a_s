@@ -1,6 +1,6 @@
 /**
  * @author AveiShriety
- * @version 1.0.6
+ * @version 1.0.7
  * @date 2020-07-27
  */
 'use strict';
@@ -20,7 +20,7 @@
       return;
     }
 
-    fetch(index.contextPath(requesturl) + "/n/wxsdk_jssdj_config" + "?url=" + encodeURIComponent(location.href.split("#")[0]))
+    fetch(index.contextPath(requesturl) + "/n/wxsdk_jssdk_config" + "?url=" + encodeURIComponent(location.href.split("#")[0]))
       .then(function (response) {
         return response.json();
       })
@@ -37,8 +37,10 @@
 
     let chooseImage = require('./lib/chooseImage');
     let scanQRCode = require('./lib/scanQRCode');
+    let chooseWXPay = require('./lib/chooseWXPay');
 
     this.chooseImage = chooseImage;
     this.scanQRCode = scanQRCode;
+    this.chooseWXPay = chooseWXPay;
   }
 }();

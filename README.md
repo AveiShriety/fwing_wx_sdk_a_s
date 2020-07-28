@@ -1,4 +1,3 @@
-[toc]
 # Preparation
 ## Installation
     
@@ -7,7 +6,7 @@
 ## Before using, you need
 Import the below `Java Mvn Dependency`:
 
-<strong style='color:#cb3837'>Current haven't been deployed to public network. SORRY！</strong> 
+<strong>Current haven't been deployed to public network. SORRY！</strong> 
 
 ```xml
 <dependency>
@@ -19,9 +18,11 @@ Import the below `Java Mvn Dependency`:
 This dependency export necessary RequestMapping Urls:
 |  @RequestMapping  |  Description  |
 |  ----  | ----  |
-| /n/wxsdk_jssdj_config  | Return necessary properties used in wx.config() |
-| /n/wxsdk_jssdj_camera  | Automatically called after user take a photo or choose a picture in the phone, then request the Wechat-Server to download the picture to Developer-Server and write the inputstream into path `images`. e.g. url: http(s)://www.xxx.com/xxx/images/xxx.png|
+| /n/wxsdk_jssdk_config  | Return necessary properties used in wx.config() |
+| /n/wxsdk_jssdk_chooseImage  | Automatically called after user take a photo or choose a picture in the phone, then request the Wechat-Server to download the picture to Developer-Server and write the inputstream into path `images`. e.g. url: http(s)://www.xxx.com/xxx/images/xxx.png|
+| /n/wxsdk_jssdk_chooseWXPay | Return necessary properties used in wx.chooseWXPay() |
 
+# Start Coding
 ## Import
 In page coding:
 ```javascript
@@ -40,7 +41,6 @@ Essentially, this npm-package is the encapsulation of AJAX request realized by j
 
 You will use happily when you use `Vue or React` project. 
 
-# Coding
 ## chooseImage
 This api will return a text which means the picture name like 'xxx.png'
 
@@ -61,7 +61,7 @@ And the usage is below:
 
 ```javascript
 fwing.scanQRCode(0);
-// is 0: The scanning results are processed by wechat
+// param 0: The scanning results are processed by wechat
 ```
 
 ```javascript
@@ -69,7 +69,14 @@ fwing.scanQRCode(1, (res) => {
     console.log(res);
     this.scanQRCodeValue = res;
 });
-// is 1: The scan result is returned directly, and the user can obtain the scan result through the parameter res in the scanQRCodeFn callback and perform other operations
+// param 1: The scan result is returned directly, and the user can obtain the scan result through the parameter res in the scanQRCodeFn callback and perform other operations
 ```
-
+## chooseWXPay
+```javascript
+fwing.chooseWXPay("Test header: fw test pay", 1, (res) => {
+        this.chooseWXPayCallback = "fontend success callback's data: " + JSON.stringify(res); 
+    }, requesturl);
+// param 'Test header: fw test pay': describe the title of you wechat pay
+// param 1: define how much money you will pay for (unit: ￥0.01)
+```
 Thanks!
