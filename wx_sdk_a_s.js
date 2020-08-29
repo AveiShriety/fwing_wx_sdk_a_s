@@ -38,9 +38,13 @@
     let chooseImage = require('./lib/chooseImage');
     let scanQRCode = require('./lib/scanQRCode');
     let chooseWXPay = require('./lib/chooseWXPay');
+    let ocrDriving = require('./lib/ocrDriving');
+    let ocrDrivinglicense = require('./lib/ocrDrivinglicense');
 
     this.chooseImage = chooseImage;
     this.scanQRCode = scanQRCode;
     this.chooseWXPay = chooseWXPay;
+    this.ocrDriving = ocrDriving;
+    this.ocrDrivinglicense = ocrDrivinglicense;
   }
 }();
