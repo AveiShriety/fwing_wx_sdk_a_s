@@ -3,25 +3,6 @@
     
     $ npm i fwing_wx_sdk_a_s
 
-## Before using, you need
-Import the below `Java Mvn Dependency`:
-
-<strong>Current haven't been deployed to public network. SORRY！</strong> 
-
-```xml
-<dependency>
-    <artifactId>wx_sdk</artifactId>
-    <version>0.0.1-Release</version>
-    <packaging>jar</packaging>
-</dependency>
-```
-This dependency export necessary RequestMapping Urls:
-|  @RequestMapping  |  Description  |
-|  ----  | ----  |
-| /n/wxsdk_jssdk_config  | Return necessary properties used in wx.config() |
-| /n/wxsdk_jssdk_chooseImage  | Automatically called after user take a photo or choose a picture in the phone, then request the Wechat-Server to download the picture to Developer-Server and write the inputstream into path `images`. e.g. url: http(s)://www.xxx.com/xxx/images/xxx.png|
-| /n/wxsdk_jssdk_chooseWXPay | Return necessary properties used in wx.chooseWXPay() |
-
 # Start Coding
 ## Import
 In page coding:
@@ -42,6 +23,10 @@ Essentially, this npm-package is the encapsulation of AJAX request realized by j
 You will use happily when you use `Vue or React` project. 
 
 ## chooseImage
+```javascript
+jsApiList = ["chooseImage", "uploadImage"];
+```
+
 This api will return a text which means the picture name like 'xxx.png'
 
 If you want to request the image you take just now, request the below url:
@@ -57,6 +42,9 @@ fwing.chooseImage((res) => {
 ```
 
 ## scanQRCode
+```javascript
+jsApiList = ["scanQRCode"];
+```
 And the usage is below:
 
 ```javascript
@@ -73,10 +61,29 @@ fwing.scanQRCode(1, (res) => {
 ```
 ## chooseWXPay
 ```javascript
+jsApiList = ["chooseWXPay"];
+```
+```javascript
 fwing.chooseWXPay("Test header: fw test pay", 1, (res) => {
         this.chooseWXPayCallback = "fontend success callback's data: " + JSON.stringify(res); 
     }, requesturl);
 // param 'Test header: fw test pay': describe the title of you wechat pay
 // param 1: define how much money you will pay for (unit: ￥0.01)
 ```
+## chooseWXPayNSH
+```javascript
+jsApiList = ["chooseWXPay"];
+```
+```javascript
+fwing.chooseWXPayNSH(
+    {goods_desc},
+    {id},
+    {trade_amount},
+    (res) => {
+        console.log(res);
+    },
+    requesturl
+);
+```
+
 Thanks!
