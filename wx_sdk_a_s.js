@@ -1,6 +1,6 @@
 /**
  * @author AveiShriety
- * @version 1.1.2
+ * @version 1.1.4
  * @date 2020-07-27
  */
 'use strict';
@@ -41,6 +41,7 @@
     let chooseWXPayNSH = require('./lib/chooseWXPayNSH');
     let ocrDriving = require('./lib/ocrDriving');
     let ocrDrivinglicense = require('./lib/ocrDrivinglicense');
+    let getLocalImgData = require('./lib/getLocalImgData');
 
     this.chooseImage = chooseImage;
     this.scanQRCode = scanQRCode;
@@ -48,5 +49,6 @@
     this.chooseWXPayNSH = chooseWXPayNSH;
     this.ocrDriving = ocrDriving;
     this.ocrDrivinglicense = ocrDrivinglicense;
+    this.getLocalImgData = getLocalImgData;
   }
 }();
