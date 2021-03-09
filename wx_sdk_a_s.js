@@ -1,6 +1,6 @@
 /**
  * @author AveiShriety
- * @version 1.1.6
+ * @version 1.1.7
  * @date 2020-07-27
  */
 'use strict';
