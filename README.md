@@ -76,9 +76,19 @@ jsApiList = ["chooseWXPay"];
 ```
 ```javascript
 fwing.chooseWXPayNSH(
-    {goods_desc},
-    {id},
-    {trade_amount},
+    {{
+        "goods_desc": "****费",
+        "list": [
+            {
+                "id": "1",
+                "trade_amount": "0.01"
+            },
+            {
+                "id": "2",
+                "trade_amount": "0.02"
+            }
+        ]
+    }},
     (res) => {
         console.log(res);
     },
