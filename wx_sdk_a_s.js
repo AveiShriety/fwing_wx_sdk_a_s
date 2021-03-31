@@ -1,6 +1,6 @@
 /**
  * @author AveiShriety
- * @version 1.2.0
+ * @version 1.2.1
  * @date 2020-07-27
  * @update 2021-03-10
  */
@@ -21,7 +21,7 @@
       return;
     }
 
-    fetch(index.contextPath(requesturl) + "/n/wxsdk_jssdk_config" + "?url=" + encodeURIComponent(location.href.split("#")[0]))
+    fetch(index.contextPath(requesturl) + "/rest/jssdk/config" + "?url=" + encodeURIComponent(location.href.split("#")[0]))
       .then(function (response) {
         return response.json();
       })
