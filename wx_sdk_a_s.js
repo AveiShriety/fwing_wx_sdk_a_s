@@ -1,6 +1,6 @@
 /**
  * @author AveiShriety
- * @version 1.2.3
+ * @version 1.2.4
  * @date 2020-07-27
  * @update 2021-03-10
  */

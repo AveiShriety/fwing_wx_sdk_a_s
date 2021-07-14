@@ -1,6 +1,6 @@
 {
   "name": "fwing_wx_sdk_a_s",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Simplification-package of weixin-jssdk usage",
   "main": "wx_sdk_a_s.js",
   "repository": {
